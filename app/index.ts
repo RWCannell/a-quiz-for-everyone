@@ -1,6 +1,8 @@
 import fastify from 'fastify';
+import { PrismaClient } from '@prisma/client';
 
 const server = fastify();
+const prisma = new PrismaClient();
 
 server.get('/health', async (request, reply) => {
     return {
@@ -45,6 +47,19 @@ const data: IFullQuestion[] = [
 server.get('/questions', (request, reply) => {
     reply.send(data);
 });
+
+server.register(require('@fastify/postgres'), {
+    connectionString: 'postgres://postgres@localhost/postgres'
+  })
+  
+  server.get('/user/:id', function (req, reply) {
+    server.pg.query(
+      'SELECT id, username, hash, salt FROM users WHERE id=$1', [req.params.id],
+      function onResult (err, result) {
+        reply.send(err || result)
+      }
+    )
+  })
 
 // Start the server
 server.listen({ port: 3000 }, (err, address) => {
