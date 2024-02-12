@@ -168,7 +168,7 @@ VALUES
     (11, 'Who was the king of England when the Magna Carta was published in 1215?', 'HISTORY', 70),
     (12, 'What is the correct chemical name for the compound historically known as saltpeter?', 'CHEMISTRY', 13),
     (13, 'In which African country is Mount Kilimanjaro?', 'GEOGRAPHY', 16),
-    (14, 'Which 1899 novella written by Joseph Conrad is based on events that took place in the Congo while it was under Belgian colonial rule?', 'LITERATURE', ),
+    (14, 'Which 1899 novella written by Joseph Conrad is based on events that took place in the Congo while it was under Belgian colonial rule?', 'LITERATURE', 32),
     (15, 'Which award-winning HBO series consists of a mafia boss named Tony, his wife Carmela, and their two children Meadow and AJ?', 'POP_CULTURE', 67),
     (16, 'Which is the only mammal that is capable of true flight?', 'BIOLOGY', 110),
     (17, 'What is the name of the Michael Jackson album that contains the hit single, ''You Rock My World''', 'POP_CULTURE', 30),
@@ -184,4 +184,4 @@ VALUES
     (27, 'In neurobiology, what is the term that describes a fast series of changes in potential difference (or voltage) across a membrane?', 'BIOLOGY', 79),
     (28, 'In web development, what does it mean when the server returns an error with status code 403?', 'INFORMATION_TECHNOLOGY', 27),
     (29, 'What is the molecular geometry of carbon dioxide?', 'CHEMISTRY', 105),
-    (30, 'What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s ''The Lion King''', 'POP_CULTURE', );
+    (30, 'What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s ''The Lion King''', 'POP_CULTURE', 81);
