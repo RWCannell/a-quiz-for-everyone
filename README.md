@@ -7,7 +7,7 @@ I like general knowledge and I especially enjoy quiz shows and games. This appli
 A PostgreSQL database is used to store the questions and options. For now, there is no _user_ entity. The application is stateless (it may be expanded upon later to include users and to keep a scoreboard for all users who participate).   
 
 ### Client (Frontend)
-The frontend is built using the [Svelte](https://svelte.dev/docs/introduction) web framework. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
+The frontend is to be built using the [Svelte](https://svelte.dev/docs/introduction) web framework. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
 
 ### Server (Backend)
-The backend has been built using the [Fastify](https://fastify.dev/docs/latest/) library with Typescript as the programming language.
+The backend is to be built using the [Fastify](https://fastify.dev/docs/latest/) library with Typescript as the programming language.
