@@ -28,14 +28,6 @@ CREATE TABLE QUESTIONS (
     CORRECT_OPTION_ID SMALLINT
 );
 
--- CREATE QUESTION_OPTIONS TABLE
-DROP TABLE IF EXISTS QUESTION_OPTIONS;
-CREATE TABLE QUESTION_OPTIONS (
-    ID SERIAL PRIMARY KEY,
-    QUESTION_ID SMALLINT,
-    OPTION_ID SMALLINT
-);
-
 -- INITIALISE OPTIONS TABLE WITH DATA
 INSERT INTO OPTIONS(ID, OPTION_TEXT, QUESTION_ID)
 VALUES
@@ -193,37 +185,3 @@ VALUES
     (28, 'In web development, what does it mean when the server returns an error with status code 403?', 'INFORMATION_TECHNOLOGY', 27),
     (29, 'What is the molecular geometry of carbon dioxide?', 'CHEMISTRY', 105),
     (30, 'What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s ''The Lion King''', 'POP_CULTURE', 81);
-
--- INITIALISE QUESTION_OPTIONS TABLE WITH DATA
-INSERT INTO QUESTION_OPTIONS(ID, QUESTION_ID, OPTION_ID)
-VALUES
-    (1, 1, 12),
-    (2, 2, 103),
-    (3, 3, 54),
-    (4, 4, 114),
-    (5, 5, 2),
-    (6, 6, 119),
-    (7, 7, 77),
-    (8, 8, 3),
-    (9, 9, 4),
-    (10, 5, 5),
-    (11, 11, 70),
-    (12, 12, 13),
-    (13, 13, 16),
-    (14, 14, 32),
-    (15, 15, 67),
-    (16, 16, 110),
-    (17, 17, 30),
-    (18, 18, 97),
-    (19, 19, 35),
-    (20, 20, 6),
-    (21, 21, 113),
-    (22, 22, 95),
-    (23, 23, 37),
-    (24, 24, 71),
-    (25, 25, 89),
-    (26, 26, 99),
-    (27, 27, 79),
-    (28, 28, 27),
-    (29, 29, 105),
-    (30, 30, 81);

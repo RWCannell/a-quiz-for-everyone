@@ -24,8 +24,15 @@ DROP TABLE IF EXISTS QUESTIONS;
 CREATE TABLE QUESTIONS (
     ID SERIAL PRIMARY KEY,
     QUESTION_TEXT VARCHAR NOT NULL,
-    QUESTION_SUBJECT QUESTION_SUBJECT,
-    CORRECT_OPTION_ID SMALLINT
+    QUESTION_SUBJECT QUESTION_SUBJECT
+);
+
+-- CREATE QUESTION_OPTIONS TABLE
+DROP TABLE IF EXISTS QUESTION_OPTIONS;
+CREATE TABLE QUESTION_OPTIONS (
+    ID SERIAL PRIMARY KEY,
+    QUESTION_ID SMALLINT,
+    OPTION_ID SMALLINT
 );
 
 -- INITIALISE OPTIONS TABLE WITH DATA
@@ -153,35 +160,69 @@ VALUES
     (120, 'replicaset', 2);
 
 -- INITIALISE QUESTIONS TABLE WITH DATA
-INSERT INTO QUESTIONS(ID, QUESTION_TEXT, QUESTION_SUBJECT, CORRECT_OPTION_ID)
+INSERT INTO QUESTIONS(ID, QUESTION_TEXT, QUESTION_SUBJECT)
 VALUES
-    (1, 'What is the capital city of Norway?', 'GEOGRAPHY', 12),
-    (2, 'Which Kubernetes resource allows for exactly a single instance of a pod to run on every node within the cluster?', 'INFORMATION_TECHNOLOGY', 103),
-    (3, 'Which one of the following elements is NOT a noble gas?', 'CHEMISTRY', 54),
-    (4, 'In which year did the Union of South Africa come into existence?', 'HISTORY', 114),
-    (5, 'Which is the second largest country in the world (by area)?', 'GEOGRAPHY', 2),
-    (6, 'Which rare disorder causes an unusually high amount of copper to accumulate in the human body, particularly inside the liver?', 'BIOLOGY', 119),
-    (7, 'Which actor won the 1994 Academy Award for Best Actor for his role in the film "Philadelphia"?', 'POP_CULTURE', 77),
-    (8, 'Which Charles Dickens novel contains the character, Thomas Gradgrind?', 'LITERATURE', 3),
-    (9, 'What is the name of the process that describes the duplication of cells, where one parent cell divides into two daughter cells that are genetically identical?', 'BIOLOGY', 4),
-    (10, 'What type of symbiotic relationship between two organisms involves one organism benefiting while the other is unaffected?', 'BIOLOGY', 5),
-    (11, 'Who was the king of England when the Magna Carta was published in 1215?', 'HISTORY', 70),
-    (12, 'What is the correct chemical name for the compound historically known as saltpeter?', 'CHEMISTRY', 13),
-    (13, 'In which African country is Mount Kilimanjaro?', 'GEOGRAPHY', 16),
-    (14, 'Which 1899 novella written by Joseph Conrad is based on events that took place in the Congo while it was under Belgian colonial rule?', 'LITERATURE', 32),
-    (15, 'Which award-winning HBO series consists of a mafia boss named Tony, his wife Carmela, and their two children Meadow and AJ?', 'POP_CULTURE', 67),
-    (16, 'Which is the only mammal that is capable of true flight?', 'BIOLOGY', 110),
-    (17, 'What is the name of the Michael Jackson album that contains the hit single, ''You Rock My World''', 'POP_CULTURE', 30),
-    (18, 'Which framework that allows for the distributed processing of large sets of data across clusters of computers was named after the inventor''s son''s toy elephant?', 'INFORMATION_TECHNOLOGY', 97),
-    (19, 'What is the physical law which states that the voltage and current are directly proportional in an electric circuit where temperature is constant?', 'PHYSICS', 35),
-    (20, 'What is the scientific term for the transition of a substance from a solid state to a gaseous state?', 'CHEMISTRY', 6),
-    (21, 'What type of force has the property in which the total work done on a particle while moving it from point A to point B is independent of the path taken?', 'PHYSICS', 113),
-    (22, 'What is the capital city of Morocco?', 'GEOGRAPHY', 95),
-    (23, 'Which 2020 song, released during the Covid pandemic lockdown, features both Justin Bieber and Ariana Grande?', 'POP_CULTURE', 37),
-    (24, 'According to Noether''s Theorem, which physical quantity is conserved in a system that remains invariant under a change in time?', 'PHYSICS', 71),
-    (25, 'In computer programming, what phrase is used to describe when the type of a variable (string, int, float, etc.) is only determined at runtime', 'INFORMATION_TECHNOLOGY', 89),
-    (26, 'What was the name of the Roman Emperor who reigned after Augustus Caesar? His reign lasted from AD 14 to AD 37.', 'HISTORY', 99),
-    (27, 'In neurobiology, what is the term that describes a fast series of changes in potential difference (or voltage) across a membrane?', 'BIOLOGY', 79),
-    (28, 'In web development, what does it mean when the server returns an error with status code 403?', 'INFORMATION_TECHNOLOGY', 27),
-    (29, 'What is the molecular geometry of carbon dioxide?', 'CHEMISTRY', 105),
-    (30, 'What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s ''The Lion King''', 'POP_CULTURE', 81);
+    (1, 'What is the capital city of Norway?', 'GEOGRAPHY'),
+    (2, 'Which Kubernetes resource allows for exactly a single instance of a pod to run on every node within the cluster?', 'INFORMATION_TECHNOLOGY'),
+    (3, 'Which one of the following elements is NOT a noble gas?', 'CHEMISTRY'),
+    (4, 'In which year did the Union of South Africa come into existence?', 'HISTORY'),
+    (5, 'Which is the second largest country in the world (by area)?', 'GEOGRAPHY'),
+    (6, 'Which rare disorder causes an unusually high amount of copper to accumulate in the human body, particularly inside the liver?', 'BIOLOGY'),
+    (7, 'Which actor won the 1994 Academy Award for Best Actor for his role in the film "Philadelphia"?', 'POP_CULTURE'),
+    (8, 'Which Charles Dickens novel contains the character, Thomas Gradgrind?', 'LITERATURE'),
+    (9, 'What is the name of the process that describes the duplication of cells, where one parent cell divides into two daughter cells that are genetically identical?', 'BIOLOGY'),
+    (10, 'What type of symbiotic relationship between two organisms involves one organism benefiting while the other is unaffected?', 'BIOLOGY'),
+    (11, 'Who was the king of England when the Magna Carta was published in 1215?', 'HISTORY'),
+    (12, 'What is the correct chemical name for the compound historically known as saltpeter?', 'CHEMISTRY'),
+    (13, 'In which African country is Mount Kilimanjaro?', 'GEOGRAPHY'),
+    (14, 'Which 1899 novella written by Joseph Conrad is based on events that took place in the Congo while it was under Belgian colonial rule?', 'LITERATURE'),
+    (15, 'Which award-winning HBO series consists of a mafia boss named Tony, his wife Carmela, and their two children Meadow and AJ?', 'POP_CULTURE'),
+    (16, 'Which is the only mammal that is capable of true flight?', 'BIOLOGY'),
+    (17, 'What is the name of the Michael Jackson album that contains the hit single, ''You Rock My World''', 'POP_CULTURE'),
+    (18, 'Which framework that allows for the distributed processing of large sets of data across clusters of computers was named after the inventor''s son''s toy elephant?', 'INFORMATION_TECHNOLOGY'),
+    (19, 'What is the physical law which states that the voltage and current are directly proportional in an electric circuit where temperature is constant?', 'PHYSICS'),
+    (20, 'What is the scientific term for the transition of a substance from a solid state to a gaseous state?', 'CHEMISTRY'),
+    (21, 'What type of force has the property in which the total work done on a particle while moving it from point A to point B is independent of the path taken?', 'PHYSICS'),
+    (22, 'What is the capital city of Morocco?', 'GEOGRAPHY'),
+    (23, 'Which 2020 song, released during the Covid pandemic lockdown, features both Justin Bieber and Ariana Grande?', 'POP_CULTURE'),
+    (24, 'According to Noether''s Theorem, which physical quantity is conserved in a system that remains invariant under a change in time?', 'PHYSICS'),
+    (25, 'In computer programming, what phrase is used to describe when the type of a variable (string, int, float, etc.) is only determined at runtime', 'INFORMATION_TECHNOLOGY'),
+    (26, 'What was the name of the Roman Emperor who reigned after Augustus Caesar? His reign lasted from AD 14 to AD 37.', 'HISTORY'),
+    (27, 'In neurobiology, what is the term that describes a fast series of changes in potential difference (or voltage) across a membrane?', 'BIOLOGY'),
+    (28, 'In web development, what does it mean when the server returns an error with status code 403?', 'INFORMATION_TECHNOLOGY'),
+    (29, 'What is the molecular geometry of carbon dioxide?', 'CHEMISTRY'),
+    (30, 'What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s ''The Lion King''', 'POP_CULTURE');
+
+-- INITIALISE QUESTION_OPTIONS TABLE WITH DATA
+INSERT INTO QUESTION_OPTIONS(ID, QUESTION_ID, OPTION_ID)
+VALUES
+    (1, 1, 12),
+    (2, 2, 103),
+    (3, 3, 54),
+    (4, 4, 114),
+    (5, 5, 2),
+    (6, 6, 119),
+    (7, 7, 77),
+    (8, 8, 3),
+    (9, 9, 4),
+    (10, 5, 5),
+    (11, 11, 70),
+    (12, 12, 13),
+    (13, 13, 16),
+    (14, 14, 32),
+    (15, 15, 67),
+    (16, 16, 110),
+    (17, 17, 30),
+    (18, 18, 97),
+    (19, 19, 35),
+    (20, 20, 6),
+    (21, 21, 113),
+    (22, 22, 95),
+    (23, 23, 37),
+    (24, 24, 71),
+    (25, 25, 89),
+    (26, 26, 99),
+    (27, 27, 79),
+    (28, 28, 27),
+    (29, 29, 105),
+    (30, 30, 81);

@@ -11,6 +11,7 @@ A PostgreSQL database is used to store the questions and options. For now, there
 questionId: string
 questionText: string
 subject: string
+correctOptionId: string
 ```
 
 **OPTION**
@@ -20,14 +21,7 @@ optionText: string
 questionId: string
 ```
 
-**QUESTION_OPTION**
-```
-questionOptionId: string
-questionId: string
-optionId: string
-```
-
-An option has multiple questions, but only one option is correct. The ids of the correct options are stored in the **QUESTION_OPTION** table.
+An option has multiple questions, but only one option is correct. 
 
 ### Client (Frontend)
 The frontend is to be built using the [Svelte](https://svelte.dev/docs/introduction) web framework. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
