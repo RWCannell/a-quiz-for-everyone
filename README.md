@@ -4,7 +4,7 @@ I like general knowledge and I especially enjoy quiz shows and games. This appli
 
 ## Architecture
 ### Database
-A PostgreSQL database is used to store the questions and options. For now, there is no _user_ entity. The application is stateless (it may be expanded upon later to include users and to keep a scoreboard for all users who participate). There are three tables, namely **QUESTION**, **OPTION**, and **QUESTION_OPTION**. Here are the data structure of each table, respectively:   
+A PostgreSQL database is used to store the questions and options. For now, there is no _user_ entity. The application may be expanded upon later to include users and to keep a scoreboard for all users who participate. There are two tables, namely **QUESTION** and **OPTION**. Here are the data structures of each table, respectively:   
 
 **QUESTION**
 ```
