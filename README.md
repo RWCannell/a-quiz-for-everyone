@@ -8,23 +8,23 @@ A PostgreSQL database is used to store the questions and options. For now, there
 
 **QUESTION**
 ```
-questionId: string
+questionId: int
 questionText: string
 subject: string
-correctOptionId: string
+correctOptionId: int
 ```
 
 **OPTION**
 ```
-optionId: string
+optionId: int
 optionText: string
-questionId: string
+owningQuestionId: int
 ```
 
 An option has multiple questions, but only one option is correct. 
 
 ### Client (Frontend)
-The frontend is to be built using the [Svelte](https://svelte.dev/docs/introduction) web framework. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
+The frontend is to be built using the [React](https://react.dev/learn) web framework and [Material UI](https://mui.com/material-ui/getting-started/) for the React components. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
 
 ### Server (Backend)
-The backend is to be built using the [Fastify](https://fastify.dev/docs/latest/) library with Typescript as the programming language.
+The backend is to be built using the [Express](https://expressjs.com/) library with Typescript as the programming language.
