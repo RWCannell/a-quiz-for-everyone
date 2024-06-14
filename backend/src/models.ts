@@ -7,6 +7,7 @@ export interface Question {
 export interface Option {
     id: string;
     text: string;
+    owningQuestionId: string;
 }
 
 export enum QuestionSubject {
