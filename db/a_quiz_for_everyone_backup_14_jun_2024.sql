@@ -293,8 +293,8 @@ afb423a4-b26c-43e1-9c53-e5a9cb29c3f4	What is the name of the process that descri
 b56c303f-61ae-4dc7-a308-8566bfe2c50d	Which 1899 novella written by Joseph Conrad is based on events that took place in the Congo while it was under Belgian colonial rule?	LITERATURE
 7e46b6fd-a232-4e2e-9ec2-f78f762c2e27	Which award-winning HBO series consists of a mafia boss named Tony, his wife Carmela, and their two children Meadow and AJ?	POP_CULTURE
 4a12c5a6-8a1b-493e-9913-de1e0d7b653a	Which is the only mammal that is capable of true flight?	BIOLOGY
-cec12a45-0f85-4d06-b656-6b242e0daf35	What is the name of the Michael Jackson album that contains the hit single, 'You Rock My World'	POP_CULTURE
-229da990-eee7-4257-bcf8-3d9e4469467f	Which framework that allows for the distributed processing of large sets of data across clusters of computers was named after the inventor's son's toy elephant?	INFORMATION_TECHNOLOGY
+cec12a45-0f85-4d06-b656-6b242e0daf35	What is the name of the Michael Jackson album that contains the hit single, "You Rock My World"	POP_CULTURE
+229da990-eee7-4257-bcf8-3d9e4469467f	Which framework that allows for the distributed processing of large sets of data across clusters of computers was named after the inventor''s son''s toy elephant?	INFORMATION_TECHNOLOGY
 d890b4c3-7882-4600-b0b0-60a34618fa7f	What is the physical law which states that the voltage and current are directly proportional in an electric circuit where temperature is constant?	PHYSICS
 17aba436-0288-41ec-bfb7-edac090c0ae7	What is the scientific term for the transition of a substance from a solid state to a gaseous state?	CHEMISTRY
 a309767a-5834-447f-bdec-88a40fb6544e	What type of force has the property in which the total work done on a particle while moving it from point A to point B is independent of the path taken?	PHYSICS
@@ -306,7 +306,7 @@ e4f700d9-aabf-4f51-8766-ea0161790954	What was the name of the Roman Emperor who 
 0e2a6745-4f77-42a6-9b8c-f2cfc17030f8	In neurobiology, what is the term that describes a fast series of changes in potential difference (or voltage) across a membrane?	BIOLOGY
 df62b1e3-cf80-469a-b692-62943103755f	In web development, what does it mean when the server returns an error with status code 403?	INFORMATION_TECHNOLOGY
 adcfa2bf-0d3f-4eb1-b456-b124878ebd46	What is the molecular geometry of carbon dioxide?	CHEMISTRY
-1ab38843-d57a-4071-b82b-e3e73383df32	What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa's assistant in Disney's 'The Lion King'	POP_CULTURE
+1ab38843-d57a-4071-b82b-e3e73383df32	What is the name of the blue bird (a red-billed hornbill) who serves as Mufasa''s assistant in Disney''s "The Lion King"	POP_CULTURE
 \.
 
 
