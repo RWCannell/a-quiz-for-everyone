@@ -1,9 +1,12 @@
-import express, { Router, Request, Response } from "express";
+import express from "express";
 import bodyParser from "body-parser";
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 import todoRoutes from "./routes";
+// import * as dotenv from "dotenv";
+import "dotenv/config";
 
-dotenv.config({ path: __dirname + "/.env" });
+// dotenv.config();
+// dotenv.config({ path: __dirname + "/.env" });
 
 const baseUrl = process.env.BASE_URL;
 const port = process.env.BACKEND_PORT || 3000;

@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import pool from "./database";
+import { Question } from "./models";
 
 const router = Router();
 
@@ -9,7 +10,7 @@ router.get("/", (req: Request, res: Response) => {
 
 router.get("/questions", async (req: Request, res: Response) => {
     try {
-        const result = await pool.query("SELECT * FROM todos");
+        const result = await pool.query("SELECT * FROM questions");
         const questions: Question[] = result.rows;
         res.json(questions);
     } catch (error) {

@@ -1,15 +1,15 @@
-interface Question {
+export interface Question {
     id: string;
     text: string;
     subject: boolean;
 }
 
-interface Option {
+export interface Option {
     id: string;
     text: string;
 }
 
-enum QuestionSubject {
+export enum QuestionSubject {
     PHYSICS = "PHYSICS",
     CHEMISTRY = "CHEMISTRY",
     GEOGRAPHY = "GEOGRAPHY",
