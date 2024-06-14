@@ -21,7 +21,25 @@ optionText: string
 owningQuestionId: int
 ```
 
-An option has multiple questions, but only one option is correct. 
+An option has multiple questions, but only one option is correct.    
+
+Assuming PostgreSQL is installed on the system (MacOs or Linux), the `postgres` shell can be entered with:
+```bash
+psql postgres
+```
+Once inside the shell, a user and password can be created with
+```bash
+CREATE USER newUser WITH PASSWORD 'user_password';
+```
+The user can be given permission to create a new database with
+```bash
+ALTER ROLE newUser CREATEDB;
+```
+To test if the `newUser` can login successfully, the session can be ended and then the user can login:
+```bash
+\q
+psql postgres -U newUser
+```
 
 ### Client (Frontend)
 The frontend is to be built using the [React](https://react.dev/learn) web framework and [Material UI](https://mui.com/material-ui/getting-started/) for the React components. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
