@@ -18,16 +18,20 @@ router.get("/questions", async (req: Request, res: Response) => {
         //     "question_text":"What is the capital city of Norway?", 
         //     "question_subject":"GEOGRAPHY"
         // }
-
+        const numberOfQuestionsInDatabase = questionsFromDatabase.length;
         const questions: Question[] = [];
 
-        for (let i = 0; i < questionsFromDatabase.length; i++) {
+        const randomIndices: number[] = Array.from(
+            { length: 10 },
+            () => Math.floor(Math.random() * numberOfQuestionsInDatabase)
+        );
+        randomIndices.forEach((index) => {
             questions.push({
-                id: questionsFromDatabase[i]["question_id"].toString(),
-                text: questionsFromDatabase[i]["question_text"].toString(),
-                subject: questionsFromDatabase[i]["question_subject"].toString(),
+                id: questionsFromDatabase[index]["question_id"].toString(),
+                text: questionsFromDatabase[index]["question_text"].toString(),
+                subject: questionsFromDatabase[index]["question_subject"].toString(),
             });
-        }
+        });
         res.status(200).json({ responseBody: questions });
     } catch (error) {
         console.error("Error fetching questions", error);
