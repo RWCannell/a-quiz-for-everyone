@@ -45,4 +45,4 @@ psql postgres -U newUser
 The frontend is to be built using the [React](https://react.dev/learn) web framework and [Material UI](https://mui.com/material-ui/getting-started/) for the React components. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
 
 ### Server (Backend)
-The backend is to be built using the [Express](https://expressjs.com/) library with Typescript as the programming language.
+The backend is to be built using the [Express](https://expressjs.com/) library with Typescript as the programming language. The backend code is stored inside the `backend` directory.
