@@ -1,11 +1,11 @@
 export function generateRandomUniqueNumbers(arrayLength: number, max: number, min: number): number[] {
-    const randomArrayOfIndices: number[] = [];
+    const randomNumbers: number[] = [];
 
-    while (randomArrayOfIndices.length < arrayLength) {
+    while (randomNumbers.length < arrayLength) {
         let randomIndex: number = Math.floor(Math.random() * (max - min + 1)) + 1;
-        if (!randomArrayOfIndices.includes(randomIndex)) {
-            randomArrayOfIndices.push(randomIndex);
+        if (!randomNumbers.includes(randomIndex)) {
+            randomNumbers.push(randomIndex);
         }
     };
-    return randomArrayOfIndices;
+    return randomNumbers;
 }
