@@ -10,6 +10,13 @@ export interface Option {
     owningQuestionId: string;
 }
 
+export interface FullQuestionDto extends Question {
+    id: string;
+    text: string;
+    subject: boolean;
+    options: Option[];
+}
+
 export enum QuestionSubject {
     PHYSICS = "PHYSICS",
     CHEMISTRY = "CHEMISTRY",
