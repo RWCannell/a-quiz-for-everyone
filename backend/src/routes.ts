@@ -16,7 +16,7 @@ router.get("/questions", async (req: Request, res: Response) => {
         const numberOfQuestionsInDatabase = questionsFromDatabase.length;
         const questions: Question[] = [];
 
-        const randomIndices = generateRandomUniqueNumbers(10, numberOfQuestionsInDatabase - 1, 0);
+        const randomIndices = generateRandomUniqueNumbers(5, numberOfQuestionsInDatabase - 1, 0);
 
         randomIndices.forEach((index) => {
             questions.push({
