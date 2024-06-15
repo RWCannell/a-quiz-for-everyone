@@ -4,14 +4,14 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-function HomePage() {
+function ResultsPage() {
   return (
     <>
       <Box sx={{ width: '100%' }}>
         <Grid
           container rowSpacing={1}
-          alignItems="center"
-          justifyContent="center"
+          alignItems="left"
+          justifyContent="left"
         >
           <Grid item>
             <Box sx={{ width: '100%' }}>
@@ -34,4 +34,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ResultsPage;
