@@ -1,11 +1,10 @@
-import './App.css';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-function App() {
+function HomePage() {
   return (
     <>
       <Box sx={{ width: '100%' }}>
@@ -16,7 +15,7 @@ function App() {
         >
           <Grid item>
             <Box sx={{ width: '100%' }}>
-              <Typography variant="h1" gutterBottom>
+              <Typography variant="h1">
                 A Quiz for Everyone
               </Typography>
               <Typography variant="h4" gutterBottom>
@@ -35,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
