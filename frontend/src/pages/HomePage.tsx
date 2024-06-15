@@ -1,8 +1,7 @@
 import Box from '@mui/material/Box';
-// import { Link as RouterLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
-import LaunchIcon from '@mui/icons-material/Launch';
+// import Button from '@mui/material/Button';
+// import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
@@ -24,9 +23,9 @@ function HomePage() {
                 Test yourself in a challenging general knowledge quiz...
               </Typography>
               <Box sx={{ textAlign: 'center' }}>
-                  <Button variant="contained" endIcon={<LaunchIcon />}>
+                  {/* <Button variant="contained" endIcon={<LaunchIcon />}> */}
                     <Link to="/quiz">Start Quiz</Link>
-                  </Button>
+                  {/* </Button> */}
               </Box>
             </Box>
           </Grid>

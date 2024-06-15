@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
@@ -8,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 
 export type QuestionCardProps = {
@@ -28,14 +26,13 @@ function QuestionCard(questionCardProps: QuestionCardProps) {
           </Typography>
           <Chip label={questionCardProps.questionSubject} size="small" />
         </Stack>
-        <Typography color="text.secondary" variant="body2">
+        <Typography variant="subtitle1">
             {questionCardProps.questionText}
         </Typography>
       </Box>
       <Divider />
       <Box sx={{ p: 2 }}>
         <FormControl>
-            <FormLabel id="options-radio-buttons-group-label">Select correct answer:</FormLabel>
             <RadioGroup
                 aria-labelledby="options-radio-buttons-group-label"
                 defaultValue=""

@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LaunchIcon from '@mui/icons-material/Launch';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import QuestionCard, { QuestionCardProps } from '../components/QuestionCard';
@@ -70,38 +72,43 @@ const questionCardProps: QuestionCardProps = {
     ],
 };
 function QuestionsPage() {
-  return (
-    <>
-      <Box sx={{ width: '100%' }}>
-        <Grid
-          container rowSpacing={1}
-          alignItems="left"
-          justifyContent="left"
-        >
-          <Grid item>
-            {questions.map((question: QuestionOptionsDto, index) => {
-                return (
-                    <Box sx={{ width: '100%' }}>
-                    <QuestionCard {...{
-                        questionNumber: index + 1,
-                        questionText: question.questionText,
-                        questionSubject: question.questionSubject,
-                        questionOptions: question.questionOptions,
-                    }}/>
+    return (
+        <>
+                <Box sx={{ width: '100%' }}>
+                    <Grid
+                        container rowSpacing={2}
+                        alignItems="left"
+                        justifyContent="left"
+                    >
+                        <Grid item sx={{
+                            margin: '1em',
+                            width: '100%'
+                        }}>
+                            <Typography variant="h4">
+                                Multiple Choice Questions
+                            </Typography>
+                            <form>
+                                {questions.map((question: QuestionOptionsDto, index) => {
+                                    return (
+                                        <Box sx={{ width: '100%', marginTop: '1em' }}>
+                                            <QuestionCard {...{
+                                                questionNumber: index + 1,
+                                                questionText: question.questionText,
+                                                questionSubject: question.questionSubject,
+                                                questionOptions: question.questionOptions,
+                                            }} />
+                                        </Box>
+                                    )
+                                })}
+                                <Button variant="contained" sx={{ marginTop: '1em' }}>
+                                    Submit
+                                </Button>
+                            </form>
+                        </Grid>
+                    </Grid>
                 </Box>
-                )
-            })} 
-            {/* <Box sx={{ width: '100%' }}>
-                <QuestionCard {
-                    ...questionCardProps
-                }
-                />
-            </Box> */}
-          </Grid>
-        </Grid>
-      </Box>
-    </>
-  );
+        </>
+    );
 }
 
 export default QuestionsPage;
