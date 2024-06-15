@@ -18,20 +18,9 @@ export type QuestionCardProps = {
     questionOptions: string[];
 };
 
-function renderQuestionOptions(options: string[]) {
-    return (
-        <>
-        {options.forEach((option: string) => {
-            <FormControlLabel value={option} control={<Radio />} label={option} />
-        })}
-        </>
-    );
-
-}
-
 function QuestionCard(questionCardProps: QuestionCardProps) {
   return (
-    <Card variant="outlined" sx={{ maxWidth: 360 }}>
+    <Card variant="outlined">
       <Box sx={{ p: 2 }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <Typography gutterBottom variant="h5" component="div">
@@ -45,20 +34,16 @@ function QuestionCard(questionCardProps: QuestionCardProps) {
       </Box>
       <Divider />
       <Box sx={{ p: 2 }}>
-        {/* <Stack direction="row" spacing={1}>
-          <Chip color="primary" label="Soft" size="small" />
-          <Chip label="Medium" size="small" />
-          <Chip label="Hard" size="small" />
-          <Chip label="Hard" size="small" />
-        </Stack> */}
         <FormControl>
             <FormLabel id="options-radio-buttons-group-label">Select correct answer:</FormLabel>
             <RadioGroup
                 aria-labelledby="options-radio-buttons-group-label"
-                defaultValue="New Orleans"
+                defaultValue=""
                 name="options-radio-buttons-group"
             >
-                { renderQuestionOptions(questionCardProps.questionOptions) }
+                {questionCardProps.questionOptions.map((option: string, index) => {
+                    return <FormControlLabel key={index} value={option} control={<Radio />} label={option} />
+                })} 
             </RadioGroup>
             </FormControl>
       </Box>

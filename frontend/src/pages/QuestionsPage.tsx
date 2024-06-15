@@ -5,6 +5,59 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import QuestionCard, { QuestionCardProps } from '../components/QuestionCard';
 
+type QuestionOptionsDto = {
+    id: string;
+    questionText: string;
+    questionSubject: string;
+    questionOptions: string[];
+};
+
+const questions: QuestionOptionsDto[] = [
+    {
+        id: '1',
+        questionText: 'What is the capital city of Louisana?',
+        questionSubject: 'GEOGRAPHY',
+        questionOptions: [
+            'New Orleans',
+            'Baton Rouge',
+            'Lafayette',
+            'Lake Charles'
+        ],
+    },
+    {
+        id: '2',
+        questionText: 'What is the capital city of Norway?',
+        questionSubject: 'GEOGRAPHY',
+        questionOptions: [
+            'Stockholm',
+            'Helsinki',
+            'Oslo',
+            'Copenhagen'
+        ],
+    },
+    {
+        id: '3',
+        questionText: 'What is the capital city of Morocco?',
+        questionSubject: 'GEOGRAPHY',
+        questionOptions: [
+            'Marrakesh',
+            'Rabat',
+            'Tangier',
+            'Casablanca'
+        ],
+    },
+    {
+        id: '4',
+        questionText: 'What is the capital city of Brazil?',
+        questionSubject: 'GEOGRAPHY',
+        questionOptions: [
+            'Brasilia',
+            'Rio de Janiero',
+            'Sao Paolo',
+            'Salvador'
+        ],
+    }
+];
 const questionCardProps: QuestionCardProps = {
     questionNumber: 1,
     questionSubject: 'GEOGRAPHY',
@@ -26,12 +79,24 @@ function QuestionsPage() {
           justifyContent="left"
         >
           <Grid item>
-            <Box sx={{ width: '100%' }}>
+            {questions.map((question: QuestionOptionsDto, index) => {
+                return (
+                    <Box sx={{ width: '100%' }}>
+                    <QuestionCard {...{
+                        questionNumber: index + 1,
+                        questionText: question.questionText,
+                        questionSubject: question.questionSubject,
+                        questionOptions: question.questionOptions,
+                    }}/>
+                </Box>
+                )
+            })} 
+            {/* <Box sx={{ width: '100%' }}>
                 <QuestionCard {
                     ...questionCardProps
                 }
                 />
-            </Box>
+            </Box> */}
           </Grid>
         </Grid>
       </Box>
