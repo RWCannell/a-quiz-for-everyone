@@ -6,6 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import QuestionCard, { QuestionCardProps } from '../components/QuestionCard';
+import { useState, useEffect } from 'react';
 
 type QuestionOptionsDto = {
     id: string;
@@ -72,41 +73,49 @@ const questionCardProps: QuestionCardProps = {
     ],
 };
 function QuestionsPage() {
+    const [questions, setQuestions] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:4000/questions').then((response) => {
+            const responseJson = response.json().then((res) => {
+                console.log(res.responseBody);
+            });
+        });
+    }, []);
     return (
         <>
-                <Box sx={{ width: '100%' }}>
-                    <Grid
-                        container rowSpacing={2}
-                        alignItems="left"
-                        justifyContent="left"
-                    >
-                        <Grid item sx={{
-                            margin: '1em',
-                            width: '100%'
-                        }}>
-                            <Typography variant="h4">
-                                Multiple Choice Questions
-                            </Typography>
-                            <form>
-                                {questions.map((question: QuestionOptionsDto, index) => {
-                                    return (
-                                        <Box sx={{ width: '100%', marginTop: '1em' }}>
-                                            <QuestionCard {...{
-                                                questionNumber: index + 1,
-                                                questionText: question.questionText,
-                                                questionSubject: question.questionSubject,
-                                                questionOptions: question.questionOptions,
-                                            }} />
-                                        </Box>
-                                    )
-                                })}
-                                <Button variant="contained" sx={{ marginTop: '1em' }}>
-                                    Submit
-                                </Button>
-                            </form>
-                        </Grid>
+            <Box sx={{ width: '100%' }}>
+                <Grid
+                    container rowSpacing={2}
+                    alignItems="left"
+                    justifyContent="left"
+                >
+                    <Grid item sx={{
+                        margin: '1em',
+                        width: '100%'
+                    }}>
+                        <Typography variant="h4">
+                            Multiple Choice Questions
+                        </Typography>
+                        <form>
+                            {questions.map((question: QuestionOptionsDto, index) => {
+                                return (
+                                    <Box key={index} sx={{ width: '100%', marginTop: '1em' }}>
+                                        <QuestionCard {...{
+                                            questionNumber: index + 1,
+                                            questionText: question.questionText,
+                                            questionSubject: question.questionSubject,
+                                            questionOptions: question.questionOptions,
+                                        }} />
+                                    </Box>
+                                )
+                            })}
+                            <Button variant="contained" sx={{ marginTop: '1em' }}>
+                                Submit
+                            </Button>
+                        </form>
                     </Grid>
-                </Box>
+                </Grid>
+            </Box>
         </>
     );
 }
