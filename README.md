@@ -42,7 +42,10 @@ psql postgres -U newUser
 ```
 
 ### Client (Frontend)
-The frontend is to be built using the [React](https://react.dev/learn) web framework and [Material UI](https://mui.com/material-ui/getting-started/) for the React components. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript.   
+The frontend is to be built using the [React](https://react.dev/learn) web framework and [Material UI](https://mui.com/material-ui/getting-started/) for the React components. Both Javascript and Typescript are valid options for the programming language, but I have chosen to use Typescript. The frontend source code can be found in the `frontend` directory.  
 
 ### Server (Backend)
-The backend is to be built using the [Express](https://expressjs.com/) library with Typescript as the programming language. The backend code is stored inside the `backend` directory.
+The backend is to be built using the [Express](https://expressjs.com/) library with Typescript as the programming language. The backend code is stored inside the `backend` directory.   
+
+The `/quiz` page, which is where the multiple choice questions are displayed, can be seen below (minimal styling):
+<img loading="lazy" width="60%" src="frontend/public/multiple_choice_questions.png" alt="multiple_choice_questions.png" />

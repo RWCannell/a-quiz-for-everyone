@@ -8,12 +8,13 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import Radio from '@mui/material/Radio';
+import { Option } from '../models/models';
 
 export type QuestionCardProps = {
     questionNumber: number;
     questionSubject: string;
     questionText: string;
-    questionOptions: string[];
+    questionOptions: Option[];
 };
 
 function QuestionCard(questionCardProps: QuestionCardProps) {
@@ -38,8 +39,8 @@ function QuestionCard(questionCardProps: QuestionCardProps) {
                 defaultValue=""
                 name="options-radio-buttons-group"
             >
-                {questionCardProps.questionOptions.map((option: string, index) => {
-                    return <FormControlLabel key={index} value={option} control={<Radio />} label={option} />
+                {questionCardProps.questionOptions.map((option: Option, index) => {
+                    return <FormControlLabel key={index} value={option.id} control={<Radio />} label={option.text} />
                 })} 
             </RadioGroup>
             </FormControl>
